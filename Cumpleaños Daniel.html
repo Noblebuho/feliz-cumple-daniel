@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Daniel! | DMC Style</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050508;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #1b0305 0%, #050508 70%);
+            z-index: -2;
+        }
+
+        .card-container {
+            position: relative;
+            width: 90%;
+            max-width: 950px;
+            background: rgba(15, 10, 15, 0.85);
+            border: 2px solid #ff003c;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 0, 60, 0.4), inset 0 0 15px rgba(0, 212, 255, 0.2);
+            padding: 40px 20px;
+            text-align: center;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .char {
+            height: 320px;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 60, 0.6));
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .char-dante {
+            position: absolute;
+            bottom: 0px;
+            left: 10px;
+            animation: floatLeft 4s ease-in-out infinite alternate;
+            z-index: 2;
+        }
+
+        /* Contenedor posicionado de Vergil */
+        .vergil-wrapper {
+            position: absolute;
+            bottom: 0px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: floatRight 4s ease-in-out infinite alternate;
+            z-index: 2;
+        }
+
+        .vergil-wrapper .char-vergil {
+            filter: drop-shadow(0 0 15px rgba(0, 183, 255, 0.6));
+        }
+
+        /* Etiqueta de texto sobre Vergil */
+        .vergil-label {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #00f3ff;
+            text-shadow: 0 0 10px #00f3ff, 0 0 20px #0055ff;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .slash-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .slash-line {
+            position: absolute;
+            width: 150%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00f3ff, #ffffff, #00f3ff, transparent);
+            box-shadow: 0 0 15px #00f3ff, 0 0 30px #00d4ff;
+            opacity: 0;
+            transform: rotate(-25deg);
+        }
+
+        .slash-1 {
+            top: 30%;
+            left: -20%;
+            animation: judgementCut 3s infinite ease-in-out;
+        }
+
+        .slash-2 {
+            top: 60%;
+            left: -10%;
+            animation: judgementCut 3s infinite ease-in-out 0.8s;
+            transform: rotate(15deg);
+        }
+
+        .slash-3 {
+            top: 45%;
+            left: -15%;
+            animation: judgementCut 3s infinite ease-in-out 1.5s;
+            transform: rotate(-5deg);
+        }
+
+        @keyframes judgementCut {
+            0% { opacity: 0; transform: scaleX(0) rotate(-20deg); }
+            15% { opacity: 1; transform: scaleX(1) rotate(-20deg); }
+            30% { opacity: 0; transform: scaleX(1.2) rotate(-20deg); }
+            100% { opacity: 0; }
+        }
+
+        @keyframes floatLeft {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        @keyframes floatRight {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        .content-box {
+            position: relative;
+            z-index: 4;
+        }
+
+        .rank-badge {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffe600;
+            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+            animation: pulseRank 1.5s infinite alternate;
+            margin-bottom: 10px;
+        }
+
+        @keyframes pulseRank {
+            0% { transform: scale(1); text-shadow: 0 0 15px #ff0000; }
+            100% { transform: scale(1.15); text-shadow: 0 0 35px #ff0055, 0 0 50px #ff0000; }
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(180deg, #ffffff 0%, #ff003c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #d0d0d0;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-ssstyle {
+            position: relative;
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #ff003c, #800020);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.6);
+            cursor: pointer;
+            overflow: hidden;
+            transition: 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn-ssstyle:hover {
+            background: linear-gradient(45deg, #00d4ff, #002699);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+            transform: scale(1.05);
+        }
+
+        #audio-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 8, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .char { height: 200px; }
+            .char-dante { left: -20px; }
+            .vergil-wrapper { right: -20px; }
+            .vergil-label { font-size: 0.85rem; }
+            h1 { font-size: 1.8rem; }
+            .rank-badge { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="audio-overlay">
+        <h2 style="font-family: 'Cinzel', serif; margin-bottom: 20px; color: #ff003c;">DEVIL MAY CRY BIRTHDAY</h2>
+        <button class="btn-ssstyle" onclick="startExperience()">¡INICIAR FIESTA!</button>
+    </div>
+
+    <div class="bg-gradient"></div>
+
+    <div class="card-container">
+        <div class="slash-effect">
+            <div class="slash-line slash-1"></div>
+            <div class="slash-line slash-2"></div>
+            <div class="slash-line slash-3"></div>
+        </div>
+
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzdhZmIwanBwbWM4OHJxNmVwOGRkdmZibWR3aGVydGVveGM2bHIxeiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/DYKdZFOBm6coHZda9w/giphy.gif" alt="Dante DMC GIF" class="char char-dante">
+
+        <div class="vergil-wrapper">
+            <span class="vergil-label">I NEED MORE POWER</span>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjUwNGc2MWNoYm95dm1jMDNwYjNkbnZuYWNyY2V2YzR1NmR1MjIyNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Y8K0XaIY7WR9VBRSHe/giphy.gif" alt="Vergil DMC GIF" class="char char-vergil">
+        </div>
+
+        <div class="content-box">
+            <div class="rank-badge">SSS</div>
+            <h1>¡HAPPY BIRTHDAY, DanoDanonino!!! WOO!</h1>
+            <p class="subtitle">SSStylish Level Unlocked!</p>
+
+            <p style="max-width: 500px; margin: 0 auto 30px auto; line-height: 1.6; color: #bbb;">
+                Hoy celebramos a un demon hunter legendario. ¡Que tengas un día lleno de combo SSS, mucha energía y sobre todo mucha diversión! 🔥⚡
+            </p>
+
+            <button class="btn-ssstyle" onclick="playJackpot()">
+                JACKPOT! 🎰
+            </button>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://raw.githubusercontent.com/Noblebuho/Songs-for-HTML/refs/heads/main/deviltriggeralert.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="jackpot-sfx">
+        <source src="https://raw.githubusercontent.com/Noblebuho/Songs-for-HTML/refs/heads/main/devil-may-cry-3-jackpot-devil-may-cry-3-jackpot-mp3cut.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const bgMusic = document.getElementById('bg-music');
+        const jackpotSfx = document.getElementById('jackpot-sfx');
+
+        function startExperience() {
+            document.getElementById('audio-overlay').style.display = 'none';
+            bgMusic.volume = 0.5;
+            bgMusic.play().catch(e => console.log("Error de reproducción:", e));
+        }
+
+        function playJackpot() {
+            jackpotSfx.currentTime = 0;
+            jackpotSfx.play();
+            alert('¡JACKPOT! 🎰🔥 ¡Felicidades en tu día, Daniel!');
+        }
+    </script>
+
+</body>
+</html>
